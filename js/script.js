@@ -21,6 +21,8 @@ function myFirstApp(name, age) {
         }
     }
 
+    checkAge();
+
     function calcPow(num) {
         console.log(num * num);
     }
