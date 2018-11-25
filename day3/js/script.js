@@ -3,7 +3,12 @@ window.addEventListener('DOMContentLoaded', function() {
     let products = document.querySelectorAll('.product'),
         buttons = document.getElementsByTagName('button'),
         open = document.getElementsByClassName('open')[0];
-    console.log(typeof products);
+
+        for(let i =0; i<buttons.length; i++) {
+        	buttons[i].classList.add('buyButtons');
+        }
+
+        buttons = document.getElementsByClassName('buyButtons');
 
     function createCart() {
         let cart = document.createElement('div'),
