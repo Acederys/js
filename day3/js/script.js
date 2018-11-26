@@ -2,13 +2,14 @@ window.addEventListener('DOMContentLoaded', function() {
     "use strict";
     let products = document.querySelectorAll('.product'),
         buttons = document.getElementsByTagName('button'),
+        shop = document.getElementsByClassName('shop')[0],
         open = document.getElementsByClassName('open')[0];
 
         for(let i =0; i<buttons.length; i++) {
         	buttons[i].classList.add('buyButtons');
         }
 
-        buttons = document.getElementsByClassName('buyButtons');
+        buttons = document.querySelectorAll('.buyButtons');
 
     function createCart() {
         let cart = document.createElement('div'),
@@ -37,12 +38,14 @@ window.addEventListener('DOMContentLoaded', function() {
 
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', function() {
-            let item = products[i].cloneNode(true),
-                btn = item.querySelector('button');
-            btn.remove();
-            field.appendChild(item);
-            products[i].remove();
-        })
+            if(buttons[i].textContent == "Купить!") {
+                buttons[i].textContent = "Убрать";
+                field.appendChild(products[i]);
+            } else {
+                buttons[i].textContent = "Купить!";
+                shop.appendChild(products[i]);
+            }
+        });
     }
 
     function openCart() {
